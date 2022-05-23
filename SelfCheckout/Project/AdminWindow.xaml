@@ -1,0 +1,22 @@
+﻿<Window x:Class="SelfCheckout.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SelfCheckout"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="400" Width="700">
+    <Grid>
+        <Canvas>
+            <TextBlock Canvas.Left="30" Canvas.Top="35" >Название:</TextBlock>
+            <TextBox x:Name="TextBoxTitle" Canvas.Left="10" Canvas.Top="56" Height="25" Width="140"/>
+            <TextBlock Canvas.Left="30" Canvas.Top="102">Цена:</TextBlock>
+            <TextBox x:Name="TextBoxPrice" Canvas.Left="10" Canvas.Top="123" Height="25" Width="140"/>
+            <TextBlock Canvas.Left="30" Canvas.Top="172">Вес:</TextBlock>
+            <TextBox x:Name="TextBoxWeight" Canvas.Left="10" Height="25" Width="140" Canvas.Top="193"/>
+            <Button x:Name="AddButton" Content="Добавить позицию" Canvas.Left="188" Canvas.Top="122" Height="25" Width="180" Click="AddButton_Click"/>
+            <ComboBox Name="ProductList" Height="25" Width="100" Canvas.Left="444" Canvas.Top="35"></ComboBox>
+            <Button x:Name="DeleteButton" Content="Удалить позицию" Canvas.Left="575" Canvas.Top="37" Height="23" Width="110"/>
+        </Canvas>
+    </Grid>
+</Window>

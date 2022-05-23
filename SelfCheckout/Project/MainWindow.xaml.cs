@@ -23,6 +23,28 @@ namespace SelfCheckout
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void AdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            PasswordAdminWindow passwordAdminWindow = new PasswordAdminWindow();
+            if(passwordAdminWindow.ShowDialog() == true)
+            {
+                if (passwordAdminWindow.Password == "1234")
+                {
+                    AdminWindow adminWindow = new AdminWindow();
+                    adminWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Неверный пароль");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Авторизация не пройдена");
+            }
         }
     }
 }

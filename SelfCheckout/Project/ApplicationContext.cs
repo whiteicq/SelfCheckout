@@ -7,8 +7,9 @@ using System.Data.Entity;
 
 namespace SelfCheckout
 {
-    class ApplicationContext: DbContext
+    class ApplicationContext : DbContext
     {
+
         public ApplicationContext() : base("DefaultConnection") { }
         public DbSet<Product> Products { get; set; }
     }

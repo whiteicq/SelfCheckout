@@ -8,23 +8,10 @@ namespace SelfCheckout
 {
     class Product: IProduct //у Кассы будет Сканер который читает условный штрих-код, заносит в бд. Потом на выходе будут Весы, кот. будут сравнивать вес продуктов во избежание обмана
     { // Вероятно будет еще Магазин или Склад с продуктами
-        private int _id;
         private double _price;
         private double _weight;
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (value > 0)
-                {
-                    _id = value;
-                }
-            }
-        }
+        private int _id;
+        public int Id { get; set; }
         public string Title { get; set; }
         public double Price
         {
@@ -55,13 +42,15 @@ namespace SelfCheckout
             }
         }
         public Product() { }
-        public Product(string title, double weight, double price)
+        public Product(string title, double price, double weight)
         {
-            Id++;
+            Title = title;
+            Price = price;
+            Weight = weight;
         }
         public override string ToString()
         {
-            return $"{Title}: {Weight}, {Price}";
+            return $"{Title}: {Price}, {Weight}";
         }
     }
 }

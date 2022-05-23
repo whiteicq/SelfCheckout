@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace SelfCheckout
 {
-    class SelfCheckout
+    interface IUser
     {
-        private Scanner scanner;
-        private Scales scales;
-        public SelfCheckout() { }
+        double Money { get; set; }
+        void MakePurchase(double sum);
     }
 }

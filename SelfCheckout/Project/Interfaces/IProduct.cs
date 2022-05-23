@@ -11,8 +11,5 @@ namespace SelfCheckout
         double Weight { get; }
         double Price { get; set; }
         string Title { get; }
-        int Id { get; }
-
-
     }
 }
