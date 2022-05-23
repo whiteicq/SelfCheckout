@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SelfCheckout
+namespace Self_checkout
 {
-    class Product: IProduct //у Кассы будет Сканер который читает условный штрих-код, заносит в бд. Потом на выходе будут Весы, кот. будут сравнивать вес продуктов во избежание обмана
+    class Product : IProduct //у Кассы будет Сканер который читает условный штрих-код, заносит в бд. Потом на выходе будут Весы, кот. будут сравнивать вес продуктов во избежание обмана
     { // Вероятно будет еще Магазин или Склад с продуктами
         private double _price;
         private double _weight;
@@ -35,7 +35,7 @@ namespace SelfCheckout
             }
             set
             {
-                if(value != 0 && value > 0)
+                if (value != 0 && value > 0)
                 {
                     _weight = value;
                 }

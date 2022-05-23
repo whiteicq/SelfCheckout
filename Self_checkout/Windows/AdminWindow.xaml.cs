@@ -12,29 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SelfCheckout
+namespace Self_checkout
 {
     /// <summary>
     /// Логика взаимодействия для AdminWindow.xaml
     /// </summary>
     public partial class AdminWindow : Window
     {
-        StoreAssortment storeAssortment;
         public AdminWindow()
         {
-            storeAssortment = StoreAssortment.CreateStoreAssortment();
             InitializeComponent();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            if (TextBoxTitle.Text != string.Empty && TextBoxPrice.Text != string.Empty && TextBoxWeight.Text != string.Empty)
-            {
-                storeAssortment.AddProduct(TextBoxTitle.Text, Convert.ToDouble(TextBoxPrice.Text), Convert.ToDouble(TextBoxWeight.Text));
-                TextBoxTitle.Text = string.Empty;
-                TextBoxPrice.Text = string.Empty;
-                TextBoxWeight.Text = string.Empty;
-            }
+            
         }
 
     }

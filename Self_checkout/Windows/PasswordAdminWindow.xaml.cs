@@ -12,10 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SelfCheckout
+namespace Self_checkout
 {
     /// <summary>
-    /// Логика взаимодействия для PasswordAdminWindow.xaml
+    /// Логика взаимодействия для Window1.xaml
     /// </summary>
     public partial class PasswordAdminWindow : Window
     {
