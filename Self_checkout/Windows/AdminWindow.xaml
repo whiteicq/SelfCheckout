@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Self_checkout"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="400" Width="700">
+        Title="AdminWindow" Height="280" Width="700">
     <Grid>
         <Canvas>
             <TextBlock Canvas.Left="30" Canvas.Top="35" >Название:</TextBlock>
@@ -14,9 +14,12 @@
             <TextBox x:Name="TextBoxPrice" Canvas.Left="10" Canvas.Top="123" Height="25" Width="140"/>
             <TextBlock Canvas.Left="30" Canvas.Top="172">Вес:</TextBlock>
             <TextBox x:Name="TextBoxWeight" Canvas.Left="10" Height="25" Width="140" Canvas.Top="193"/>
-            <Button x:Name="AddButton" Content="Добавить позицию" Canvas.Left="188" Canvas.Top="122" Height="25" Width="180" Click="AddButton_Click"/>
-            <ComboBox Name="ProductList" Height="25" Width="100" Canvas.Left="444" Canvas.Top="35"></ComboBox>
-            <Button x:Name="DeleteButton" Content="Удалить позицию" Canvas.Left="575" Canvas.Top="37" Height="23" Width="110"/>
+            <Button x:Name="AddButton" Content="Добавить позицию" Canvas.Left="188" Canvas.Top="122" Height="26" Width="180" Click="AddButton_Click"/>
+            <TextBlock Canvas.Left="524" Canvas.Top="35">Название для удаления:</TextBlock>
+            <TextBox Name="TextBoxTitleDelete" Height="25" Width="140" Canvas.Left="524" Canvas.Top="56"/>
+            <TextBlock Canvas.Left="524" Canvas.Top="101">Цена для удаления</TextBlock>
+            <TextBox Name="TextBoxPriceDelete" Height="25" Width="140" Canvas.Left="524" Canvas.Top="123"/>
+            <Button x:Name="DeleteButton" Content="Удалить позицию" Canvas.Left="524" Canvas.Top="193" Height="23" Width="110" Click="DeleteButton_Click"/>
         </Canvas>
     </Grid>
 </Window>
