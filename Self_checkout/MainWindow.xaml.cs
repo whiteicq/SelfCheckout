@@ -26,7 +26,7 @@ namespace Self_checkout
         public MainWindow()
         {
             InitializeComponent();
-              
+            FillComboBox();
         }
 
         private void AdminButton_Click(object sender, RoutedEventArgs e)
@@ -47,6 +47,33 @@ namespace Self_checkout
             else
             {
                 MessageBox.Show("Авторизация не пройдена");
+            }
+        }
+
+        private void ProductsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void FillComboBox()
+        {
+            StoreAssortment storeAssortment = StoreAssortment.CreateStoreAssortment();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter
+                (
+                    "SELECT * FROM Products",
+                    storeAssortment.sqlConnection
+                );
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            foreach (DataRow row in dataSet.Tables[0].Rows)
+            {
+                ProductsList.Items.Add(
+                    new Product 
+                    { 
+                        Title = row["Title"].ToString(),
+                        Price = Convert.ToDouble(row["Price"]), 
+                        Weight = Convert.ToDouble(row["Weight"]) 
+                    });
             }
         }
     }

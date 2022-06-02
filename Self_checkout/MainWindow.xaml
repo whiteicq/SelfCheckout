@@ -9,9 +9,9 @@
     <Grid>
         <Canvas>
             <Image Source="Media/SC.png" HorizontalAlignment="Center" Canvas.Left="260" Canvas.Top="-30" Height="340" Width="300"/>
-            <Button x:Name="ChoosingButton" Content="Выбрать товар" Canvas.Left="335" Canvas.Top="369" Height="30" Width="100"/>
-            <Button x:Name="AdminButton" Content="Admin" Canvas.Left="737" Canvas.Top="390" Height="30" Width="57" Click="AdminButton_Click" />
-            <Button Visibility="Collapsed" x:Name="OffScaleButton" Content="Снять с весов"/>
+            <Button x:Name="AdminButton" Content="Admin" Canvas.Left="742" Canvas.Top="32" Height="30" Width="57" Click="AdminButton_Click" />
+            <ComboBox x:Name="ProductsList" Height="30" Width="250" Canvas.Left="260" Canvas.Top="390" SelectionChanged="ProductsList_SelectionChanged" />
+            
         </Canvas>
     </Grid>
 </Window>

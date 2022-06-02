@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Self_checkout
 {
-    class Admin
+    interface IStoreAssortment
     {
-        // private string password;
-        public Admin(string pass)
-        {
-            VernamCipher.EncryptCipherVernam();
-        }
+        void AddProduct(string title, double price, double weight);
+        void DeleteProduct(string title, double price);
     }
 }
