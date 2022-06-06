@@ -38,7 +38,6 @@ namespace Self_checkout
                     $"INSERT INTO [Products] (Title, Price, Weight) VALUES (N'{title}', '{price}', '{weight}')",
                     sqlConnection
                     );
-                /*sqlCommand.ExecuteNonQuery();*/
                 if (sqlCommand.ExecuteNonQuery() != 0)
                 {
                     Notify?.Invoke($"Добавлено {title}: {price} руб, {weight} гр");

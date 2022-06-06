@@ -6,21 +6,58 @@ using System.Threading.Tasks;
 
 namespace Self_checkout
 {
-    class User // Нужен класс Кассы со Сканнером, Весами, Контроллером и через Кассу будет опперировать Юзер
+    class User 
     {
-        public double Cash { get; set; }
-        public Stack<IProduct> ProductsBasket;
-        public User(params IProduct[] products)
+        public delegate void SendWarning(string message);
+        public event SendWarning Warning;
+        private double _cash;
+        public double Cash
         {
-            foreach (var product in products)
+            get
             {
-                ProductsBasket.Push(product);
+                return _cash;
+            }
+            set
+            {
+                if (value >= 0)
+                {
+                    _cash = value;
+                }
             }
         }
-        public User() { }
-        public void Pay()
+        public List<IProduct> ProductsBasket;
+        public User(double cash, params Product[] products)
         {
-            
+            ProductsBasket = new List<IProduct>();
+            foreach (var product in products)
+            {
+                ProductsBasket.Add(product);
+            }
+        }
+        public User(double cash)
+        {
+            Cash = cash;
+            ProductsBasket = new List<IProduct>();
+        }
+        public User() { }
+        public void TakeProduct(IProduct product)
+        {
+            ProductsBasket.Add(product);
+        }
+        public void PutProduct(IProduct product)
+        {
+            ProductsBasket.Remove(product);
+        }
+        public void Pay(double sum)
+        {
+            if (Cash >= sum)
+            {
+                Cash -= sum;
+            }
+            else
+            {
+                Warning?.Invoke("Недостаточно средств");
+            }
         }
     }
 }

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Self_checkout"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="280" Width="700">
+        Icon="C:\Users\user\Desktop\SelfCheckout\Self_checkout\Media\admin.ico"
+        Title="Администраторская" Height="280" Width="700">
     <Grid>
         <Canvas>
             <TextBlock Canvas.Left="30" Canvas.Top="35" >Название:</TextBlock>

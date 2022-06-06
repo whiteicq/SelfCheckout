@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Self_checkout"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="850">
+        Icon="C:\Users\user\Desktop\SelfCheckout\Self_checkout\Media\SC_ico.ico"
+        Title="Касса самообслуживания" Height="480" Width="850">
     <Grid>
-        <Canvas>
+        <Canvas x:Name="Canvas">
             <Image Source="Media/SC.png" HorizontalAlignment="Center" Canvas.Left="260" Canvas.Top="-30" Height="340" Width="300"/>
-            <Button x:Name="AdminButton" Content="Admin" Canvas.Left="742" Canvas.Top="32" Height="30" Width="57" Click="AdminButton_Click" />
-            <ComboBox x:Name="ProductsList" Height="30" Width="250" Canvas.Left="260" Canvas.Top="390" SelectionChanged="ProductsList_SelectionChanged" />
-            
+            <Button x:Name="AdminButton" Content="Admin" Canvas.Left="742" Canvas.Top="32" Height="30" Width="57" Click="AdminButton_Click"/>
+            <ComboBox x:Name="ProductsList" Height="30" Width="250" Canvas.Left="260" Canvas.Top="390"/>
+            <Button x:Name="EnterProductButton" Content="Добавить" Height="30" Width="57" Click="EnterProduct_Click" Canvas.Left="537" Canvas.Top="391" RenderTransformOrigin="-4.288,-4.57"/>
+            <Button x:Name="ShowProductsBasketButton" Content="Показать корзину" Height="30" Width="111" Canvas.Left="618" Canvas.Top="391" Click="ShowProductsBasketButton_Click"/>
+            <Button x:Name="SaleButton" Content="Купить" Height="25" Width="45" Canvas.Left="260" Canvas.Top="150" Click="SaleButton_Click" Visibility="Hidden"/>
+            <Button x:Name="AbortButton" Content="Отмена" Height="25" Width="45" Canvas.Left="260" Canvas.Top="220" Click="AbortButton_Click" Visibility="Hidden"/>
+            <Button x:Name="ShowUserCash" Content="Показать остаток" Height="25" Width="121" Canvas.Left="63" Canvas.Top="391" Click="ShowUserCash_Click"/>
         </Canvas>
     </Grid>
 </Window>

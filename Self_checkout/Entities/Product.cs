@@ -12,6 +12,7 @@ namespace Self_checkout
         public double Price { get; set; }
         public double Weight { get; set; }
         public Product() { }
+
         public Product(string title, double price, double weight)
         {
             Title = title;

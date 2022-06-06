@@ -23,18 +23,24 @@ namespace Self_checkout
     /// </summary>
     public partial class MainWindow : Window
     {
+        private StoreAssortment storeAssortment;
+        private User user;
+        private SelfCheckout checkout;
         public MainWindow()
         {
             InitializeComponent();
             FillComboBox();
+            user = new User(10000);
+            checkout = SelfCheckout.CreateSelfCheckout();
         }
 
         private void AdminButton_Click(object sender, RoutedEventArgs e)
         {
+            Admin admin = new Admin("666");
             PasswordAdminWindow passwordAdminWindow = new PasswordAdminWindow();
             if (passwordAdminWindow.ShowDialog() == true)
             {
-                if (passwordAdminWindow.Password == "1234")
+                if (passwordAdminWindow.Password == admin.Password)
                 {
                     AdminWindow adminWindow = new AdminWindow();
                     adminWindow.Show();
@@ -50,14 +56,11 @@ namespace Self_checkout
             }
         }
 
-        private void ProductsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
+        
 
         private void FillComboBox()
         {
-            StoreAssortment storeAssortment = StoreAssortment.CreateStoreAssortment();
+            storeAssortment = StoreAssortment.CreateStoreAssortment();
             SqlDataAdapter dataAdapter = new SqlDataAdapter
                 (
                     "SELECT * FROM Products",
@@ -75,6 +78,54 @@ namespace Self_checkout
                         Weight = Convert.ToDouble(row["Weight"]) 
                     });
             }
+        }
+
+        private void EnterProduct_Click(object sender, RoutedEventArgs e)
+        {
+            if(ProductsList.SelectedItem != null)
+            {
+                user.TakeProduct((IProduct)ProductsList.SelectedItem);
+                if(user.ProductsBasket.Count != 0)
+                {
+                    SaleButton.Visibility = Visibility.Visible;
+                    AbortButton.Visibility = Visibility.Visible;
+                }
+            }
+            
+        }
+
+        private void ShowProductsBasketButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(user.ProductsBasket.Count != 0)
+            {
+                string res = "Ваша корзина:\n";
+                for(int i = 0; i < user.ProductsBasket.Count; i++)
+                
+                {
+                    res += user.ProductsBasket[i].ToString() + "\n";
+                }
+                MessageBox.Show(res);
+            }
+            else
+            {
+                MessageBox.Show("Корзина пуста");
+            }
+        }
+
+        private void SaleButton_Click(object sender, RoutedEventArgs e)
+        {
+            user.Pay(checkout.scanner.ScanProducts(user.ProductsBasket));
+            user.ProductsBasket.Clear();
+        }
+
+        private void AbortButton_Click(object sender, RoutedEventArgs e)
+        {
+            user.ProductsBasket.Clear();
+        }
+
+        private void ShowUserCash_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Ваш остаток: {user.Cash}");
         }
     }
 }

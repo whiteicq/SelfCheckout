@@ -8,10 +8,12 @@ namespace Self_checkout
 {
     class Admin
     {
-        // private string password;
+        private string _password;
+        
+        public string Password { get; private set; }
         public Admin(string pass)
         {
-            // VernamCipher.EncryptCipherVernam();
+            Password = pass;
         }
     }
 }

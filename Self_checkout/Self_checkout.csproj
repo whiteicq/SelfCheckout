@@ -71,6 +71,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="SelfCheckoutEntities\Scanner.cs" />
     <Compile Include="Entities\Admin.cs" />
     <Compile Include="Entities\StoreAssortment.cs" />
     <Compile Include="Entities\VernamCipher.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Interfaces\IStoreAssortment.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\User.cs" />
+    <Compile Include="SelfCheckoutEntities\SelfCheckout.cs" />
     <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -133,6 +135,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Media\SC.png" />
+    <Content Include="Media\admin.ico" />
+    <Content Include="Media\SC_ico.ico" />
     <Content Include="Products.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
